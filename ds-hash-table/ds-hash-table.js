@@ -3,9 +3,10 @@ var makeHashTable = function() {
   var max = 4;
 
     return {
-      _storage: [],
+      _storage: [,,,],
       retrieve: function(key) {
         var bucket = this._storage[hashFn(key, max)];
+
         if(!bucket){
         	return null
         }
@@ -21,18 +22,23 @@ var makeHashTable = function() {
       insert: function(key, value) {
         //your code is here
         var bucket = this._storage[hashFn(key, max)] //|| []
+        console.log(bucket)
+        //console.log(hashFn(key, max))
         //if no bucket make one
         if(!bucket){
-        	bucket = []
+        	//console.log(bucket)
+        	bucket = [[key,value]]
+        	//console.log(bucket)
         }
-        for(var i = 0; i<bucket.length; i++){
-        	var tuple = bucket[i]
-        	if(tuple[0] === key){
-        		tuple[1] = value
-        		break
-        	}
-        }
-        bucket.push([key, value])
+        // for(var i = 0; i<bucket.length; i++){
+        // 	var tuple = bucket[i]
+        // 	if(tuple[0] === key){
+        // 		tuple[1] = value
+        // 		break
+        // 	}
+        // }
+        else {//console.log('sth')
+      bucket.push([key, value])}
 
     }
   }
