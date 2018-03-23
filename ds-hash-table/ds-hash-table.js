@@ -33,6 +33,7 @@ var makeHashTable = function() {
 
         }
         else {
+        	bucket = this._storage[index]
           for (var i = 0; i < bucket.length; i++) {
             if(bucket[i][0] === key){
               bucket[i][1] = value
